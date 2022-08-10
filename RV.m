@@ -1,6 +1,7 @@
 %% model comparison 
 function [TRV,RV_num,sigma2]=RV(res_1,res_3,Z_ss)
-%{
+%{ 
+% model inputs are residuals from model 1 and model 3, res_1, res_3, and instrument variables Z_ss.  
 res_1=pr-1000*downmarkup_n-X_s*gamma_n_1;
 res_2=pr-1000*upmarkup_n-1000*downmarkup_n-X_s*gamma_n_2;
 res_3=pr-1000*upmarkup_n3-1000*downmarkup_n-X_s*gamma_n_3;
