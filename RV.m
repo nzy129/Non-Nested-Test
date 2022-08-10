@@ -32,23 +32,6 @@ v_3=r3'*r3/n;gmm3=g'*inv(v_3)*g;
 Secondhalf=zeros(L,n);
 
 %si 1
-%{
-parfor i = 1:n
-
-   
-    Secondhalf(:,i)=1/2*sqrtm(sqrtm(W1))*sqrtm(sqrtm(W1))*sqrtm(sqrtm(W1))*...
-        (Z_ss(i,:)'*Z_ss(i,:)-r1'*r1/n)*sqrtm(sqrtm(W1))*sqrtm(sqrtm(W1))*sqrtm(sqrtm(W1))*g;
-
-end
-
-Second_faster=1/2*(sqrtm(sqrtm(W1))*sqrtm(sqrtm(W1))*sqrtm(sqrtm(W1)))*...
-    ((Z_ss*(sqrtm(sqrtm(W1))*sqrtm(sqrtm(W1))*sqrtm(sqrtm(W1))*g)).*Z_ss)'-...
-    1/2*sqrtm(W1)*g;
-%}
-
-%faster code
-% (sqrtm(sqrtm(W1))*sqrtm(sqrtm(W1))*sqrtm(sqrtm(W1))*g)
-
 
 si1=sqrtm(W1)*(r1'-g)-1/2*(sqrtm(sqrtm(W1))*sqrtm(sqrtm(W1))*sqrtm(sqrtm(W1)))*...
     ((Z_ss*(sqrtm(sqrtm(W1))*sqrtm(sqrtm(W1))*sqrtm(sqrtm(W1))*g)).*Z_ss)'-...
