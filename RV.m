@@ -20,7 +20,6 @@ L = size(Z_ss,2);%number of the instrument
 g=Z_ss'*res_1/n;
 h=Z_ss'*res_3/n;
 
-
 r1=res_1.*Z_ss;
 W1=inv(r1'*r1/n);
 v_1=r1'*r1/n;gmm1=g'*inv(v_1)*g;
@@ -28,9 +27,6 @@ v_1=r1'*r1/n;gmm1=g'*inv(v_1)*g;
 r3=res_3.*Z_ss;
 W3=inv(r3'*r3/n);
 v_3=r3'*r3/n;gmm3=g'*inv(v_3)*g;
-
-
-Secondhalf=zeros(L,n);
 
 %si 1
 
@@ -43,7 +39,6 @@ si1=sqrtm(W1)*(r1'-g)-1/2*(sqrtm(sqrtm(W1))*sqrtm(sqrtm(W1))*sqrtm(sqrtm(W1)))*.
 si2=sqrtm(W3)*(r3'-h)-1/2*(sqrtm(sqrtm(W3))*sqrtm(sqrtm(W3))*sqrtm(sqrtm(W3)))*...
     ((Z_ss*(sqrtm(sqrtm(W3))*sqrtm(sqrtm(W3))*sqrtm(sqrtm(W3))*h)).*Z_ss)'-...
     1/2*sqrtm(W3)*h;
-
 
 V11=1/n*si1*si1';V12=1/n*si1*si2';V22=1/n*si2*si2';
 
