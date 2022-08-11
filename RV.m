@@ -26,7 +26,7 @@ v_1=r1'*r1/n;gmm1=g'*inv(v_1)*g;
 
 r3=res_3.*Z_ss;
 W3=inv(r3'*r3/n);
-v_3=r3'*r3/n;gmm3=g'*inv(v_3)*g;
+v_3=r3'*r3/n;gmm3=h'*inv(v_3)*h;
 
 %si 1
 
@@ -43,7 +43,7 @@ si2=sqrtm(W3)*(r3'-h)-1/2*(sqrtm(sqrtm(W3))*sqrtm(sqrtm(W3))*sqrtm(sqrtm(W3)))*.
 V11=1/n*si1*si1';V12=1/n*si1*si2';V22=1/n*si2*si2';
 
 sigma2=4*(g'*sqrtm(W1)*V11*sqrtm(W1)*g+h'*sqrtm(W3)*V22*sqrtm(W3)*h-...
-    2*g'*sqrtm(W1)*V12*sqrtm(W3)*g);
+    2*g'*sqrtm(W1)*V12*sqrtm(W3)*h);
 RV_num=(n^0.5)*(g'*inv(v_1)*g - h'*inv(v_3)*h);
 TRV = RV_num/sqrt(sigma2);
 
